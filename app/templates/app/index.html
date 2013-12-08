@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US">
+<html lang="zh-CN">
 <head>
 	<meta charset="UTF-8">
 	<title>二维码名片</title>
@@ -16,7 +16,7 @@
     <![endif]-->
     {%load staticfiles%}
     <link rel="stylesheet" href="{%static 'app/main.css'%}">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -28,25 +28,86 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">Card2D</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
-
+    {{info}}
     <div class="container">
 
       <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <h1>创建自己的二维码名片吧</h1>
+        <div class="panel panel-default">
+        <div class="panel-body">
+        <div class="row">
+          <div class="col-md-5">
+            <a href="#" class="thumbnail">
+              <img src="{%static fileName%}" alt="...">
+            </a> 
+          </div>
+          <div class="col-md-7">
+            <form  method="POST" class="form-horizontal" role="form">
+              {%csrf_token%}
+              <div class="form-group">
+                <label for="inputName" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="username" id="inputName" placeholder="Name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" name="email" id="inputEmail3" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPhone" class="col-sm-2 control-label">Phone</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="tel" id="inputPhone" placeholder="Phone">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputQQ" class="col-sm-2 control-label">QQ</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="qq" id="inputQQ" placeholder="QQ">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputSite" class="col-sm-2 control-label">WebSite</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="site" id="inputSite" placeholder="WebSite">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputCompany" class="col-sm-2 control-label">Company</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="company" id="inputCompany" placeholder="Company">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPosition" class="col-sm-2 control-label">Position</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="position" id="inputPosition" placeholder="Position">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
       </div>
-
+      </div>
+      </div>
     </div><!-- /.container -->
 
 
